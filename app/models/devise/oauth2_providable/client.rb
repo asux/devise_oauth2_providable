@@ -1,4 +1,14 @@
-class Devise::Oauth2Providable::Client < ActiveRecord::Base
+class Devise::Oauth2Providable::Client
+  include Mongoid::Document
+
+  field :name, type: String
+  field :redirect_uri, type: String
+  field :website, type: String
+  field :identifier, type: String
+  field :secret, type: String
+  field :created_at: type: DateTime
+  field :updated_at: type: DateTime
+
   has_many :access_tokens
   has_many :refresh_tokens
   has_many :authorization_codes
