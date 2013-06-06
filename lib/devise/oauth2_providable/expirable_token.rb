@@ -12,7 +12,7 @@ module Devise
           self.default_lifetime = Rails.application.config.devise_oauth2_providable[config_name]
 
           belongs_to :user
-          belongs_to :client
+          belongs_to :client, class_name: 'Devise::Oauth2Providable::Client'
 
           attr_accessible :user, :client
 
@@ -22,9 +22,7 @@ module Devise
           validates :client, presence: true
           validates :token, presence: true, uniqueness: true
 
-          default_scope lambda {
-            where(self.arel_table[:expires_at].gteq(Time.now.utc))
-          }
+          default_scope where(:expires_at.gte => Time.now.utc)
 
           include LocalInstanceMethods
         end
@@ -55,4 +53,4 @@ module Devise
   end
 end
 
-ActiveRecord::Base.send :include, Devise::Oauth2Providable::ExpirableToken
+Devise::Oauth2Providable::BaseToken.send :include, Devise::Oauth2Providable::ExpirableToken

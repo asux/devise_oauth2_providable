@@ -3,6 +3,5 @@ class Devise::Oauth2Providable::RefreshToken < Devise::Oauth2Providable::BaseTok
 
   attr_accessible :access_tokens
 
-  has_many :access_tokens
-
+  has_many :access_tokens, class_name: 'Devise::Oauth2Providable::AccessToken'
 end

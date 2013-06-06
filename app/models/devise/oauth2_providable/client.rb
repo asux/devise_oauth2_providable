@@ -1,15 +1,15 @@
 class Devise::Oauth2Providable::Client < Devise::Oauth2Providable::Base
-  field :name, type: String
-  field :redirect_uri, type: String
-  field :website, type: String
-  field :identifier, type: String
-  field :secret, type: String
+  field :name
+  field :redirect_uri
+  field :website
+  field :identifier
+  field :secret
 
   index({identifier: 1}, {unique: true, background: true})
 
-  has_many :access_tokens
-  has_many :refresh_tokens
-  has_many :authorization_codes
+  has_many :access_tokens, class_name: 'Devise::Oauth2Providable::AccessToken'
+  has_many :refresh_tokens, class_name: 'Devise::Oauth2Providable::RefreshToken'
+  has_many :authorization_codes, class_name: 'Devise::Oauth2Providable::AuthorizationCode'
 
   before_validation :init_identifier, on: :create, unless: :identifier?
   before_validation :init_secret, on: :create, unless: :secret?
