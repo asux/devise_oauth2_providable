@@ -11,11 +11,11 @@ class Devise::Oauth2Providable::Client < Devise::Oauth2Providable::Base
   has_many :refresh_tokens
   has_many :authorization_codes
 
-  before_validation :init_identifier, :on => :create, :unless => :identifier?
-  before_validation :init_secret, :on => :create, :unless => :secret?
-  validates :website, :secret, :presence => true
-  validates :name, :presence => true, :uniqueness => true
-  validates :identifier, :presence => true, :uniqueness => true
+  before_validation :init_identifier, on: :create, unless: :identifier?
+  before_validation :init_secret, on: :create, unless: :secret?
+  validates :website, :secret, presence: true
+  validates :name, presence: true, uniqueness: true
+  validates :identifier, presence: true, uniqueness: true
 
   attr_accessible :name, :website, :redirect_uri
 
