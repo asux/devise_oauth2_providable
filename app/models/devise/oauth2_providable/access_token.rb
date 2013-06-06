@@ -1,4 +1,6 @@
 class Devise::Oauth2Providable::AccessToken < Devise::Oauth2Providable::BaseToken
+  field :refresh_token_id
+
   expires_according_to :access_token_expires_in
 
   before_validation :restrict_expires_at, on: :create, if: :refresh_token
