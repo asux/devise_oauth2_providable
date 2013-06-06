@@ -1,5 +1,5 @@
 Ryan Sonnek - Original Author
-
+Alex Ulianytskyi - Mongoid version
 
 Complete list of contributors:
 https://github.com/socialcast/devise_oauth2_providable/contributors

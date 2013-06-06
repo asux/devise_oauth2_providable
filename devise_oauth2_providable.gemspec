@@ -3,13 +3,13 @@ $:.push File.expand_path("../lib", __FILE__)
 require "devise/oauth2_providable/version"
 
 Gem::Specification.new do |s|
-  s.name        = "devise_oauth2_providable_mongoid"
+  s.name        = "devise_oauth2_providable"
   s.version     = Devise::Oauth2Providable::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Ryan Sonnek", "ALex Ulianytskyi"]
+  s.authors     = ["Ryan Sonnek", "Alex Ulianytskyi"]
   s.email       = ["ryan@socialcast.com", "a.ulyanitsky@gmail.com"]
   s.homepage    = ""
-  s.summary     = %q{OAuth2 Provider for Rails3 applications using Mongoid DRM}
+  s.summary     = %q{OAuth2 Provider for Rails3 applications using Mongoid ODM}
   s.description = %q{Rails3 engine that adds OAuth2 Provider support to any application built with Devise authentication}
 
   s.add_runtime_dependency(%q<rails>, [">= 3.1.0"])
