@@ -3,6 +3,8 @@ class Devise::Oauth2Providable::Base
   include Mongoid::Timestamps
   include Mongoid::Validations
 
+  store_in collection: :oauth2
+
   class << self
     def method_missing(method, *args)
       method.to_s.match(/^find_by_(\w+)$/) do |m|
