@@ -1,6 +1,6 @@
 class Devise::Oauth2Providable::BaseToken < Devise::Oauth2Providable::Base
   field :token
-  field :expires_at, type: DateTime
+  field :expires_at, type: Time
   field :user_id
   field :client_id
 
