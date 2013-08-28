@@ -9,7 +9,7 @@ class Devise::Oauth2Providable::Base
     def method_missing(method, *args)
       method.to_s.match(/^find_by_(\w+)$/) do |m|
         attribute = m[1].to_sym
-        return where(attribute => args.first).first
+        return find_by(attribute => args.first)
       end
       super
     end
