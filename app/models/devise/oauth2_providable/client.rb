@@ -28,5 +28,4 @@ class Devise::Oauth2Providable::Client < Devise::Oauth2Providable::Base
   def init_secret
     self.secret = Devise::Oauth2Providable.random_id
   end
-
 end
