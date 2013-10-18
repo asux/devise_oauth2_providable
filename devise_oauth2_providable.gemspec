@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require "devise/oauth2_providable/version"
 
 Gem::Specification.new do |s|
-  s.name        = "devise_oauth2_providable-mongoid"
+  s.name        = "devise_oauth2_providable"
   s.version     = Devise::Oauth2Providable::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Ryan Sonnek", "Alex Ulianytskyi"]
@@ -15,7 +15,6 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency(%q<rails>, [">= 3.1.0"])
   s.add_runtime_dependency(%q<devise>, [">= 2.0.0"])
   s.add_runtime_dependency(%q<rack-oauth2>, ["~> 0.11.0"])
-  s.add_runtime_dependency(%q<mongoid>, ["~> 3.1.4"])
   s.add_development_dependency(%q<rspec-rails>, ['2.13.1'])
   s.add_development_dependency(%q<shoulda-matchers>, ['2.1.0'])
   s.add_development_dependency(%q<pry>, ['0.9.12'])
