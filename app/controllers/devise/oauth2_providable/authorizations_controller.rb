@@ -13,7 +13,7 @@ module Devise
       end
 
       def create
-        respond *authorize_endpoint(:allow_approval).call(request.env)
+        respond *authorize_endpoint(true).call(request.env)
       end
 
       private
@@ -22,10 +22,14 @@ module Devise
         ["WWW-Authenticate"].each do |key|
           headers[key] = header[key] if header[key].present?
         end
-        if response.redirect?
-          redirect_to header['Location']
-        else
-          render :new
+        respond_to do |format|
+          if response.redirect?
+            format.html { redirect_to header['Location'] }
+            format.any { respond_with code: response.code }
+          else
+            format.html { render :new }
+            format.any { head :ok }
+          end
         end
       end
 
