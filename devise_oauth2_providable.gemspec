@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency(%q<rails>, [">= 3.1.0"])
   s.add_runtime_dependency(%q<devise>, [">= 2.0.0"])
-  s.add_runtime_dependency(%q<rack-oauth2>, ["~> 0.11.0"])
+  s.add_runtime_dependency(%q<rack-oauth2>, ["~> 1.0.5"])
   s.add_development_dependency(%q<rspec-rails>, ['2.13.1'])
   s.add_development_dependency(%q<shoulda-matchers>, ['2.1.0'])
   s.add_development_dependency(%q<pry>, ['0.9.12'])
