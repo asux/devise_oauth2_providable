@@ -5,7 +5,10 @@ module Devise
 
       rescue_from Rack::OAuth2::Server::Authorize::BadRequest do |e|
         @error = e
-        render :error, status: e.status
+        respond_to do |format|
+          format.html { render :error, status: e.status }
+          format.any { respond_with e, status: e.status }
+        end
       end
 
       def new
